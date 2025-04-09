@@ -6,20 +6,11 @@ class GameState
 {   
 public:
     GameState(/* args */);
-    ~GameState();
+    virtual ~GameState() = 0;
 
     // virtual std::string getName();
     virtual bool launch(Game* game) = 0;
     virtual bool stop(Game* game) = 0;
 };
-
-GameState::GameState(/* args */)
-{
-}
-
-GameState::~GameState()
-{
-}
-
 
 #endif // __GAMESTATE_H__

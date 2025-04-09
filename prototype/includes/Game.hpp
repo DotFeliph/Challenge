@@ -1,29 +1,21 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 #include "GameState.hpp"
+#include "InstalledState.hpp"
 
 class Game
 {
 private:
-    GameState* currentState;
+    GameState *currentState;
     // int processedId;
 public:
-    Game(/* args */);
+    Game(): currentState{ new InstalledState() } { }
     ~Game();
-    bool launch();
-    bool stop();
+    bool launch() { currentState->launch(this); }
+    bool stop() { currentState->stop(this); }
     void setState(GameState* state);
     GameState* setState();
 
 };
-
-Game::Game(/* args */)
-{
-}
-
-Game::~Game()
-{
-}
-
 
 #endif // __GAME_H__
